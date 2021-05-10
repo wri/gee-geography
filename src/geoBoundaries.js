@@ -4,11 +4,11 @@
   Copyright: World Resources Institute
   License: MIT
   Contact: Logan Byers
-  Date Updated: 2021-04-16
+  Date Updated: 2021-05-10
 
 */
 var version = function () {
-  return '0.3.0';
+  return '0.3.1';
 };
 
 var docs = function (func) {
@@ -218,15 +218,26 @@ var checkGeoBoundariesAssetExists = function (iso, level, version) {
     "projects/wri-datalab/geoBoundaries/v3_0_0/CRI/ADM1",
     "projects/wri-datalab/geoBoundaries/v3_0_0/CRI/ADM2",
     "projects/wri-datalab/geoBoundaries/v3_0_0/CRI/ADM3",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/ETH/ADM0",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/ETH/ADM1",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/ETH/ADM2",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/ETH/ADM3",
     "projects/wri-datalab/geoBoundaries/v3_0_0/IDN/ADM0",
     "projects/wri-datalab/geoBoundaries/v3_0_0/IDN/ADM1",
     "projects/wri-datalab/geoBoundaries/v3_0_0/IDN/ADM2",
     "projects/wri-datalab/geoBoundaries/v3_0_0/IND/ADM0",
     "projects/wri-datalab/geoBoundaries/v3_0_0/IND/ADM1",
     "projects/wri-datalab/geoBoundaries/v3_0_0/IND/ADM2",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/KEN/ADM0",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/KEN/ADM1",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/KEN/ADM2",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/KEN/ADM3",
     "projects/wri-datalab/geoBoundaries/v3_0_0/MEX/ADM0",
     "projects/wri-datalab/geoBoundaries/v3_0_0/MEX/ADM1",
     "projects/wri-datalab/geoBoundaries/v3_0_0/MEX/ADM2",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/MAR/ADM0",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/MAR/ADM1",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/MAR/ADM2",
     "projects/wri-datalab/geoBoundaries/v3_0_0/RWA/ADM0",
     "projects/wri-datalab/geoBoundaries/v3_0_0/RWA/ADM1",
     "projects/wri-datalab/geoBoundaries/v3_0_0/RWA/ADM2",
@@ -239,7 +250,13 @@ var checkGeoBoundariesAssetExists = function (iso, level, version) {
     "projects/wri-datalab/geoBoundaries/v3_0_0/SLE/ADM4",
     "projects/wri-datalab/geoBoundaries/v3_0_0/TUR/ADM0",
     "projects/wri-datalab/geoBoundaries/v3_0_0/TUR/ADM1",
-    "projects/wri-datalab/geoBoundaries/v3_0_0/TUR/ADM2"
+    "projects/wri-datalab/geoBoundaries/v3_0_0/TUR/ADM2",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/UGA/ADM0",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/UGA/ADM1",
+    "projects/wri-datalab/geoBoundaries/v3_0_0/UGA/ADM2",
+    "projects/wri-datalab/geoBoundaries/geoBoundariesCGAZ_ADM0",
+    "projects/wri-datalab/geoBoundaries/geoBoundariesCGAZ_ADM1",
+    "projects/wri-datalab/geoBoundaries/geoBoundariesCGAZ_ADM2"
   ];
   return ( all_assets.indexOf(getGeoBoundariesAssetName(iso, level, version)) >=0 );
 
@@ -271,6 +288,10 @@ var getGeoBoundariesAssetName = function (iso, level, version) {
   
   if (version === undefined) {
     version = "3_0_0";
+  }
+
+  if (iso === 'WLD') {
+    return "projects/wri-datalab/geoBoundaries/geoBoundariesCGAZ_" + level;
   }
 
   return "projects/wri-datalab/geoBoundaries/v" + version + "/" + iso + "/" + level;
